@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author amry4
  */
 @Controller
+@RequestMapping("/category")
 public class CategoryController {
 
     @Autowired
@@ -38,13 +39,13 @@ public class CategoryController {
         List<Category> listcat = generalService.manageData(new Category(), "name", "", "", false, true);
         model.addAttribute("categories", listcat);
         System.out.println(listcat);
-        return "index";
+        return "category";
     }
 
     @RequestMapping("/delete/{id}")
     public String Delete(@PathVariable(name = "id") int id) {
         generalService.manageData(new Category(), "", "", id, true, true);
-        return "redirect:/";
+        return "redirect:/category/";
     }
 
 }

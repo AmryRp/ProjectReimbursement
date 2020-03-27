@@ -1,80 +1,59 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Daftar Kategori</title>
-        <style type="text/css">
-            h1{
-               font-family: sans-serif;
-               border-bottom: 3px solid #abcae8;
-               color:#4d7ba7;
-            }
-            
-            #table{
-               border-collapse: collapse;
-               color: #4d7ba7;
-               font-family: arial;
-            }
-            
-            #table th{
-               padding: 10px;
-               border-bottom: 2px solid #4d7ba7;
-               text-transform: uppercase;
-               font-weight: bold;
-            }
-            
-            #table td{
-                padding: 10px;
-                border-bottom: 1px solid #4d7ba7;
-                padding-right: 25px;
-            }
-            
-            #table a{
-                text-decoration: none;
-                color:#4d7ba7;
-            }
-            
-            #buttonTambah{
-                margin-bottom: 10px;
-            }
-            
-            #buttonTambah a{
-                text-decoration: none;
-                color: #ffffff;
-                font-family: arial;
-                background: #abcae8;
-                border:1px solid antiquewhite;
-                padding: 5px;
-                border-radius: 8px;
-            }
-        </style>
+            <title>Index</title>
+            <style type="text/css">
+                h1{
+                    font-family: sans-serif;
+                    border-bottom: 3px solid #abcae8;
+                    color:#4d7ba7;
+                }
+
+                #table{
+                    border-collapse: collapse;
+                    color: #4d7ba7;
+                    font-family: arial;
+                }
+
+                #table th{
+                    padding: 10px;
+                    border-bottom: 2px solid #4d7ba7;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+
+                #table td{
+                    padding: 10px;
+                    border-bottom: 1px solid #4d7ba7;
+                    padding-right: 25px;
+                }
+
+                #table a{
+                    text-decoration: none;
+                    color:#4d7ba7;
+                }
+
+                #buttonTambah{
+                    margin-bottom: 10px;
+                }
+
+                #buttonTambah a{
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-family: arial;
+                    background: #abcae8;
+                    border:1px solid antiquewhite;
+                    padding: 5px;
+                    border-radius: 8px;
+                }
+            </style>
     </head>
     <body>
         <h1>Kategori</h1>
-        <div id="buttonTambah">
-            <a href="${pageContext.request.contextPath}/tambah">Tambah</a>
-        </div>
-        
-        <table id="table">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>judul</th>
-                    <th>Opsi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="category : ${categories}">
-                    <td><c:out th:text="${category.id}" /></td>
-                    <td><c:out th:text="${category.name}" /></td>
-                    <td><a th:href="@{'/edit/' + ${category.id}}">Edit</a>
-                	&nbsp;&nbsp;&nbsp;
-                	<a th:href="@{'/delete/' + ${category.id}}">Delete</a>
-                    </td>
-                </tr>
-               
-            </tbody>
-        </table> 
+        <a href="/category/">Kategori</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="@{'/delete/' + ${category.id}}">Delete</a>
     </body>
 </html>
